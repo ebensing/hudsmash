@@ -1,0 +1,22 @@
+doctype 5
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+    script(type="text/javascript", src="http://code.jquery.com/jquery-2.0.3.min.js")
+    block head
+  body
+    div.container
+      nav(role="navigation").navbar.navbar-default
+        div.navbar-header
+          a(href="#").navbar-brand HUDS Mash
+        div.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+              a(href="#") Home
+            li
+              a(href="#") Link1
+            li
+              a(href="#") Link2
+      block content
