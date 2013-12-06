@@ -34,7 +34,7 @@ exports.getNewPair = function (req, res) {
         var food2 = foods[index];
 
         var rObj = {
-          foods : [food1, food2]
+          foods : [food1.toObject(), food2.toObject()]
         };
 
         return res.sendJson(rObj);
@@ -42,3 +42,11 @@ exports.getNewPair = function (req, res) {
     });
   });
 }
+
+exports.methods = function(req, res){
+  res.render('methods', { title: 'HUDS Mash' });
+};
+
+exports.about = function(req, res){
+  res.render('about', { title: 'HUDS Mash' });
+};

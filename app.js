@@ -30,6 +30,9 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/play', routes.play);
+app.get('/methods', routes.methods);
+app.get('/about', routes.about);
+app.get('/newPair', routes.getNewPair);
 
 
 mongoose.connect("mongodb://localhost", function (err) {

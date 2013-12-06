@@ -1,0 +1,85 @@
+extends layout
+
+block content
+  div.jumbotron
+    h1 Methods
+    h2 How was the "healthiest" food chosen?
+    p
+      | Since the foods being compared are often not being compared in the same
+      | quantities, I decided to approach this using a nutrient density score.
+      | In particular, I used a slightly modified version of INQ scores. INQ
+      | stands for Index of Nutritional Quality and is essentially a measure of
+      | the nutrient density in a food. To calculate the INQ value for a given
+      | nutrient you do the following:
+    ol
+      li 
+        | Divide the amount of the nutrient in the food by the recommended
+        | daily allowance (RDA) for that nutrient.
+      li
+        | Divide the number of calories by the recommend daily calorie intake.
+      li
+        | Divide the result of the first calculation by the result of the
+        | second calculation.
+    p
+      | For this project, I looked at the main 3 macronutrients: Carbs,
+      | Protein, and Fats. To get a single score for each food, I averaged the
+      | three different INQ values for each food to get a general INQ score.
+      | The food with the higher INQ score is deemed to be healthier.
+    p
+      | INQ is a good measure to use because in general, it is better to get
+      | the maximal amount of nutrients in your food so that you can reduce
+      | your caloric intake. America has an obesity problem, thus Americans
+      | should (in general) seek to reduce the amount of calories they intake.
+      | Obviously, this is not true for everybody, but given the high caloric
+      | content of most food college students eat, it is a fairly good goal to
+      | aim for.
+    p
+      | For the RDA values, I used the following:
+      ul
+        li Calories: 2000
+        li Carbs: 300g
+        li Protein: 50g
+        li Fat: 65g
+
+    h2 Weaknesses in methodology
+    p
+      | Condensing the nutritional value for a food down to a single number
+      | is pretty much impossible to do accurately. Thus, there are several
+      | weakness in my approach.
+    h3 Only Considering Macronutrients
+    p
+      | The human body needs more than just the macronutrients to function, yet
+      | I do not consider them in this project. This means that some foods
+      | which are rich in vitamins and minerals, but lack basic nutrients, such
+      | as some vegetables, will get lower scores than they realistically
+      | should.
+    h3 Everybody is unique
+    p
+      | Nutritional value of a food differs from person to person, and in this
+      | project I only use a single RDA value that does not account for age,
+      | gender, or activity level.
+    h3 Whole picture is obscured
+    p
+      | When deciding what to eat, it is important to look at everything you
+      | eat during the day and not just a single food. For example, if you only
+      | ate foods that had high INQ values, you would likely have a fat deficit
+      | because fat has more calories than the other macronutrients, and thus
+      | gets lower INQ scores.
+    h3 Many more...
+    p
+      | In the end, nutrition is a very complex science and impossible to boil
+      | down to a simple project like this. My hope is that this does provide a
+      | rough enough estimate to better educate and inform Harvard students about
+      | the food they are eating, and possibly spark them to do further research
+      | on their own to really understand the true nutritional value of what they
+      | are putting into their bodies.
+    
+    h2 References
+    ul
+      li 
+        a(href="http://www.livestrong.com/article/81887-calculate-nutrient-density/")
+          | http://www.livestrong.com/article/81887-calculate-nutrient-density/
+      li
+        a(href="http://www.netrition.com/rdi_page.html")
+          | http://www.netrition.com/rdi_page.html
+
