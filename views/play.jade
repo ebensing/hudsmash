@@ -12,15 +12,38 @@ block content
           span.score-value 0
     div.row
       div.col-md-5.text-center
-        span.item1
+        span.item1.clickable
       div.col-md-2.text-center
         span OR
       div.col-md-5.text-center
-        span.item2
-    div.row
-      div.col-md-12.text-center
+        span.item2.clickable
+    div.row.invisible.inforow
+      div.col-md-3.text-center
+        div
+          | Protein:
+          span.item1-protein
+        div
+          | Carbs:
+          span.item1-carbs
+        div
+          | Fats:
+          span.item1-fats
+      div.col-md-6.text-center
         img(src="/images/correct.png")#success.hidden
         img(src="/images/delete.png")#failure.hidden
+      div.col-md-3.text-center.invisible.inforow
+        div
+          | Protein:
+          span.item2-protein
+        div
+          | Carbs:
+          span.item2-carbs
+        div
+          | Fats:
+          span.item2-fats
+    div.row
+      div.col-md-12.text-center
+        a#nextBtn.btn.btn-lg.btn-primary.hidden Next
     div.row
       div.col-md-12.text-center
         span Select the food which is healthier out of the two above!

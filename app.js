@@ -35,7 +35,7 @@ app.get('/about', routes.about);
 app.get('/newPair', routes.getNewPair);
 
 
-mongoose.connect("mongodb://localhost", function (err) {
+mongoose.connect("mongodb://localhost/huds", function (err) {
   http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
   });

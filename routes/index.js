@@ -16,18 +16,21 @@ exports.play = function(req, res){
 exports.getNewPair = function (req, res) {
   Food.count(function (err, count) {
     if (err) {
-      return res.sendJson(err);
+      return res.json(err);
     }
 
-    var rand = Math.floor(Math.random() * num);
-    Food.find({}, { skip : rand, limit : 1 }, function (err, food1) {
+    var rand = Math.floor(Math.random() * count);
+    Food.find({}, {}, { skip : rand, limit : 1 }, function (err, food1) {
       if (err) {
-        return res.sendJson(err);
+        console.log(err);
+        return res.json(err);
       }
+
+      food1 = food1[0];
 
       Food.find({ INQ : { $gte : (food1.INQ - 1), $lte : (food1.INQ + 1) }}, function (err, foods) {
         if (err) {
-          return res.sendJson(err);
+          return res.json(err);
         }
 
         var index = Math.floor(Math.random() * foods.length);
@@ -37,7 +40,7 @@ exports.getNewPair = function (req, res) {
           foods : [food1.toObject(), food2.toObject()]
         };
 
-        return res.sendJson(rObj);
+        return res.json(rObj);
       });
     });
   });

@@ -8,12 +8,22 @@ function getNewPair() {
       return;
     }
 
+    data = data.foods;
+
     $(".item1").text(data[0].portion + " " + data[0].unit + " of " + data[0].name);
     $(".item1").attr("score", data[0].INQ);
+
+    $(".item1-protein").text(data[0].protein + " g");
+    $(".item1-carbs").text(data[0].totalcarbs + " g");
+    $(".item1-fats").text(data[0].totalfat + " g");
 
 
     $(".item2").text(data[1].portion + " " + data[1].unit + " of " + data[1].name);
     $(".item2").attr("score", data[1].INQ);
+
+    $(".item2-protein").text(data[1].protein + " g");
+    $(".item2-carbs").text(data[1].totalcarbs + " g");
+    $(".item2-fats").text(data[1].totalfat + " g");
   });
 }
 
@@ -37,7 +47,6 @@ function onItemClick() {
     showFail();
   }
 
-  getNewPair();
 }
 
 function incScore() {
@@ -47,15 +56,29 @@ function incScore() {
 }
 
 function showSuccess() {
+  $(".inforow").removeClass("invisible");
   $("#success").removeClass("hidden");
   $("#failure").addClass("hidden");
+  $("#nextBtn").removeClass("hidden");
 }
 
 function showFail() {
+  $(".inforow").removeClass("invisible");
   $("#failure").removeClass("hidden");
   $("#success").addClass("hidden");
+  $("#nextBtn").removeClass("hidden");
 }
 
 $("document").ready(function () {
   getNewPair();
+  $(".item1").click(onItemClick);
+  $(".item2").click(onItemClick);
+
+  $("#nextBtn").click(function () {
+    $("#success").addClass("hidden");
+    $("#failure").addClass("hidden");
+    $("#nextBtn").addClass("hidden");
+    $(".inforow").addClass("invisible");
+    getNewPair();
+  });
 });

@@ -2,3 +2,12 @@
 .hidden {
   display: none;
 }
+
+.clickable {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.invisible {
+  visibility: hidden;
+}
