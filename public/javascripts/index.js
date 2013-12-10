@@ -16,6 +16,7 @@ function getNewPair() {
     $(".item1-protein").text(data[0].protein + " g");
     $(".item1-carbs").text(data[0].totalcarbs + " g");
     $(".item1-fats").text(data[0].totalfat + " g");
+    $(".item1-inq").text(data[0].INQ);
 
 
     $(".item2").text(data[1].portion + " " + data[1].unit + " of " + data[1].name);
@@ -24,12 +25,12 @@ function getNewPair() {
     $(".item2-protein").text(data[1].protein + " g");
     $(".item2-carbs").text(data[1].totalcarbs + " g");
     $(".item2-fats").text(data[1].totalfat + " g");
+    $(".item2-inq").text(data[1].INQ);
   });
 }
 
 function onItemClick() {
-  var item = $(this).attr("class");
-
+  var item = $(this).attr("class").replace(" clickable", "");
   var picked = parseFloat($(this).attr("score"));
   var other = 0.0;
 

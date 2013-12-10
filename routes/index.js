@@ -28,7 +28,7 @@ exports.getNewPair = function (req, res) {
 
       food1 = food1[0];
 
-      Food.find({ INQ : { $gte : (food1.INQ - 1), $lte : (food1.INQ + 1) }}, function (err, foods) {
+      Food.find({ INQ : { $gte : (food1.INQ - 5), $lte : (food1.INQ + 5) }, _id : { $ne : food1._id }}, function (err, foods) {
         if (err) {
           return res.json(err);
         }
@@ -36,9 +36,17 @@ exports.getNewPair = function (req, res) {
         var index = Math.floor(Math.random() * foods.length);
         var food2 = foods[index];
 
-        var rObj = {
-          foods : [food1.toObject(), food2.toObject()]
-        };
+        var rObj = {};
+        var r = Math.random();
+        if (r > .5) {
+          rObj = {
+            foods : [food1.toObject(), food2.toObject()]
+          };
+        } else {
+          rObj = {
+            foods : [food2.toObject(), food1.toObject()]
+          };
+        }
 
         return res.json(rObj);
       });
